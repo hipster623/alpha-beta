@@ -11,9 +11,16 @@ namespace Crm2011CodeActivities
 {
     public class AlphaBeta : CodeActivity
     {
+        //TODO: crm 2011 wf properties input names?
+
+        public InArgument<string> TextToParse { get; set; }
+        public OutArgument<string> Found { get; set; }
+        public OutArgument<int> Prob { get; set; }
+
         protected override void Execute(CodeActivityContext context)
         {
-            throw new NotImplementedException();
+            Found.Set(context, TextToParse.Get(context));
+            Prob.Set(context, 0);
         }
     }
 }
